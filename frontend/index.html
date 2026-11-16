@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripCraft — Explore India's Hidden Gems & Plan Smart Trips</title>
+    <meta name="description" content="TripCraft is a travel planning web application featuring 9 handpicked hidden destinations in India, smart destination-based budget estimates, and custom day-wise itineraries.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="header" id="header">
+        <div class="container navbar-container">
+            <a href="#home" class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-compass"></i></span>
+                <span class="logo-text">Trip<span>Craft</span></span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#destinations" class="nav-link">Destinations</a></li>
+                    <li class="nav-item"><a href="#planner" class="nav-link">Plan a Trip</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="#planner" class="btn btn-primary btn-sm"><i class="fa-solid fa-route"></i> Plan Now</a>
+                </div>
+            </nav>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero-section" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-sparkles"></i> Uncover India's Secret Treasures</span>
+            <h1 class="hero-title">Discover India's Untold Wonders</h1>
+            <p class="hero-description">
+                Step beyond crowded tourist hotspots. Explore serene pine valleys, ancient monasteries, living root bridges, and historic kingdoms with realistic budget breakdowns and personalized itineraries.
+            </p>
+            <div class="hero-buttons">
+                <a href="#destinations" class="btn btn-primary btn-lg"><i class="fa-solid fa-compass"></i> Start Exploring</a>
+                <a href="#planner" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-calculator"></i> Smart Trip Planner</a>
+            </div>
+
+            <!-- Hero Highlights Strip -->
+            <div class="hero-highlights">
+                <div class="highlight-item">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <div>
+                        <strong>9 Offbeat Gems</strong>
+                        <span>Handpicked Indian locales</span>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                    <div>
+                        <strong>Realistic Cost Models</strong>
+                        <span>Destination-based rates</span>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <div>
+                        <strong>Day-Wise Plans</strong>
+                        <span>Customized itineraries</span>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div>
+                        <strong>BCA Capstone</strong>
+                        <span>Clean & modular build</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= DESTINATIONS SECTION ================= -->
+    <section class="destinations-section" id="destinations">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Curated Getaways</span>
+                <h2 class="section-title">9 Enchanting Hidden Destinations</h2>
+                <p class="section-subtitle">
+                    Carefully chosen for authentic regional culture, breathtaking landscapes, and peaceful travel experiences away from commercial crowds.
+                </p>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-category="all">All Destinations</button>
+                <button class="filter-btn" data-category="mountains">Mountains & Valleys</button>
+                <button class="filter-btn" data-category="coastal">Coastal & Islands</button>
+                <button class="filter-btn" data-category="heritage">Heritage & Sacred</button>
+                <button class="filter-btn" data-category="nature">Eco & Nature</button>
+            </div>
+
+            <!-- Destinations Grid -->
+            <div class="destinations-grid" id="destinationsGrid">
+                <!-- Injected via JavaScript or populated with cards below -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TRIP PLANNER SECTION ================= -->
+    <section class="planner-section" id="planner">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Interactive Calculator</span>
+                <h2 class="section-title">Smart Trip Planner</h2>
+                <p class="section-subtitle">
+                    Select your destination, enter your trip parameters, and receive an instant destination-based budget analysis with an expandable day-wise itinerary.
+                </p>
+            </div>
+
+            <div class="planner-wrapper">
+                <!-- Planner Form Card -->
+                <div class="planner-form-card">
+                    <div class="card-header-bar">
+                        <i class="fa-solid fa-sliders"></i>
+                        <h3>Trip Parameters</h3>
+                    </div>
+                    
+                    <form id="tripPlannerForm" class="planner-form" novalidate>
+                        <!-- Destination Field -->
+                        <div class="form-group">
+                            <label for="destinationSelect">
+                                <i class="fa-solid fa-location-dot"></i> Destination
+                            </label>
+                            <select id="destinationSelect" class="form-control" required>
+                                <option value="" disabled selected>-- Choose a destination --</option>
+                                <option value="ziro">Ziro Valley, Arunachal Pradesh</option>
+                                <option value="tawang">Tawang, Arunachal Pradesh</option>
+                                <option value="majuli">Majuli Island, Assam</option>
+                                <option value="gokarna">Gokarna, Karnataka</option>
+                                <option value="devprayag">Devprayag, Uttarakhand</option>
+                                <option value="mawlynnong">Mawlynnong, Meghalaya</option>
+                                <option value="chopta">Chopta, Uttarakhand</option>
+                                <option value="orchha">Orchha, Madhya Pradesh</option>
+                                <option value="dhanushkodi">Dhanushkodi, Tamil Nadu</option>
+                            </select>
+                            <span class="form-hint">Destination dictates base regional rates</span>
+                        </div>
+
+                        <!-- Days & Travellers row -->
+                        <div class="form-row">
+                            <div class="form-group col-half">
+                                <label for="tripDays">
+                                    <i class="fa-solid fa-calendar-check"></i> Travel Days
+                                </label>
+                                <input type="number" id="tripDays" class="form-control" min="1" max="14" value="4" required>
+                                <span class="form-hint">Duration (1 to 14 days)</span>
+                            </div>
+
+                            <div class="form-group col-half">
+                                <label for="numTravellers">
+                                    <i class="fa-solid fa-users"></i> Travellers
+                                </label>
+                                <input type="number" id="numTravellers" class="form-control" min="1" max="20" value="2" required>
+                                <span class="form-hint">Group size (rooms & cab split)</span>
+                            </div>
+                        </div>
+
+                        <!-- Budget per person -->
+                        <div class="form-group">
+                            <label for="budgetPerPerson">
+                                <i class="fa-solid fa-indian-rupee-sign"></i> Total Budget per Person (INR)
+                            </label>
+                            <div class="input-with-prefix">
+                                <span class="input-prefix">₹</span>
+                                <input type="number" id="budgetPerPerson" class="form-control" min="1000" step="500" value="12000" placeholder="e.g. 12000" required>
+                            </div>
+                            <span class="form-hint">Your intended spending per person (excl. long-distance flights/trains)</span>
+                        </div>
+
+                        <!-- Travel Preference -->
+                        <div class="form-group">
+                            <label for="travelPreference">
+                                <i class="fa-solid fa-compass-drafting"></i> Travel Preference
+                            </label>
+                            <select id="travelPreference" class="form-control" required>
+                                <option value="nature" selected>🌿 Nature & Scenic Trails</option>
+                                <option value="adventure">⛰️ Adventure & Trekking</option>
+                                <option value="cultural">🏛️ Cultural & Heritage</option>
+                                <option value="relaxation">🌅 Relaxation & Serenity</option>
+                            </select>
+                            <span class="form-hint">Customizes itinerary activities & cost weightage</span>
+                        </div>
+
+                        <!-- Form Error Message -->
+                        <div class="form-error-msg" id="formErrorMsg" style="display: none;"></div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnSubmitPlan">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Itinerary & Cost Plan
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Planner Results Container -->
+                <div class="planner-results-card" id="plannerResults">
+                    <!-- Default Empty State -->
+                    <div class="results-empty-state" id="resultsEmptyState">
+                        <div class="empty-icon"><i class="fa-solid fa-map-pin"></i></div>
+                        <h3>Your Plan Will Appear Here</h3>
+                        <p>Select a destination, adjust your trip days, budget, and travel preference, then click <strong>"Generate Itinerary & Cost Plan"</strong> to view:</p>
+                        <ul class="empty-features-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Feasibility check against your entered budget</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Realistic cost breakdown (Stay, Food, Transport, Activities)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Day-by-day expandable itinerary schedules</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Direct Google Maps search links & transit hubs</li>
+                        </ul>
+                    </div>
+
+                    <!-- Dynamic Output Container (Filled when generated) -->
+                    <div class="results-content" id="resultsContent" style="display: none;">
+                        <!-- Results Header -->
+                        <div class="plan-header">
+                            <div>
+                                <span class="plan-dest-badge" id="planDestState">State</span>
+                                <h3 class="plan-title" id="planDestTitle">Destination Name</h3>
+                                <p class="plan-meta" id="planMetaText">4 Days • 2 Travellers • Nature</p>
+                            </div>
+                            <div class="plan-status-pill" id="planStatusPill">
+                                <i class="fa-solid fa-circle-check"></i> Feasible
+                            </div>
+                        </div>
+
+                        <!-- Feasibility Alert Box -->
+                        <div class="feasibility-alert" id="feasibilityAlert">
+                            <!-- Populated dynamically: green or warning -->
+                        </div>
+
+                        <!-- 4 Summary Metrics -->
+                        <div class="cost-metrics-grid">
+                            <div class="metric-card">
+                                <span class="metric-label">Estimated Per Person</span>
+                                <div class="metric-value" id="valPerPerson">₹0</div>
+                                <span class="metric-sub" id="subPerPerson">Budget: ₹0</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-label">Daily Cost / Person</span>
+                                <div class="metric-value" id="valDailyCost">₹0</div>
+                                <span class="metric-sub">Average per day</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-label">Total Group Estimate</span>
+                                <div class="metric-value" id="valGroupTotal">₹0</div>
+                                <span class="metric-sub" id="subGroupTravellers">For 2 travellers</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-label">Total Group Budget</span>
+                                <div class="metric-value" id="valGroupBudget">₹0</div>
+                                <span class="metric-sub" id="subBudgetDiff">+₹0 remaining</span>
+                            </div>
+                        </div>
+
+                        <!-- Category Breakdown Bars -->
+                        <div class="category-breakdown-box">
+                            <h4 class="box-title"><i class="fa-solid fa-chart-pie"></i> Estimated Expense Distribution (Per Person)</h4>
+                            <div class="category-items-grid">
+                                <div class="category-item">
+                                    <div class="cat-top">
+                                        <span><i class="fa-solid fa-bed"></i> Accommodation</span>
+                                        <strong id="catAccomCost">₹0</strong>
+                                    </div>
+                                    <div class="progress-bar-bg"><div class="progress-bar-fill" id="catAccomBar" style="width: 35%;"></div></div>
+                                    <span class="cat-note">Shared twin-basis rooms / homestays</span>
+                                </div>
+                                <div class="category-item">
+                                    <div class="cat-top">
+                                        <span><i class="fa-solid fa-utensils"></i> Food & Dining</span>
+                                        <strong id="catFoodCost">₹0</strong>
+                                    </div>
+                                    <div class="progress-bar-bg"><div class="progress-bar-fill" id="catFoodBar" style="width: 25%;"></div></div>
+                                    <span class="cat-note">Regional meals & local eateries</span>
+                                </div>
+                                <div class="category-item">
+                                    <div class="cat-top">
+                                        <span><i class="fa-solid fa-taxi"></i> Local Transport</span>
+                                        <strong id="catTransportCost">₹0</strong>
+                                    </div>
+                                    <div class="progress-bar-bg"><div class="progress-bar-fill" id="catTransportBar" style="width: 25%;"></div></div>
+                                    <span class="cat-note">Shared cabs / autos / ferry</span>
+                                </div>
+                                <div class="category-item">
+                                    <div class="cat-top">
+                                        <span><i class="fa-solid fa-ticket"></i> Sightseeing & Activities</span>
+                                        <strong id="catActivityCost">₹0</strong>
+                                    </div>
+                                    <div class="progress-bar-bg"><div class="progress-bar-fill" id="catActivityBar" style="width: 15%;"></div></div>
+                                    <span class="cat-note">Entry tickets, permits, local guides</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Official Estimation Disclaimer -->
+                        <div class="estimate-disclaimer">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <p>
+                                <strong>Academic Estimation Disclaimer:</strong> All financial figures and transport costs are realistic baseline estimates calculated for college project planning and educational reference. TripCraft does not claim live real-time pricing or live ticket booking.
+                            </p>
+                        </div>
+
+                        <!-- Transit Hubs & Google Maps Links -->
+                        <div class="transit-box">
+                            <h4 class="box-title"><i class="fa-solid fa-map-location-dot"></i> Navigation & Transit Links</h4>
+                            <div class="transit-links-grid">
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="transit-link-card" id="linkGoogleMaps">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <div>
+                                        <strong>Google Maps View</strong>
+                                        <span id="txtMapsDest">Explore destination coordinates</span>
+                                    </div>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="transit-link-card" id="linkAirport">
+                                    <i class="fa-solid fa-plane-departure"></i>
+                                    <div>
+                                        <strong>Nearest Airport</strong>
+                                        <span id="txtAirport">Airport info</span>
+                                    </div>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="transit-link-card" id="linkRailway">
+                                    <i class="fa-solid fa-train"></i>
+                                    <div>
+                                        <strong>Nearest Railway Station</strong>
+                                        <span id="txtRailway">Railway info</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Expandable Day-Wise Itinerary Accordion -->
+                        <div class="itinerary-section">
+                            <h4 class="box-title"><i class="fa-solid fa-route"></i> Day-Wise Suggested Itinerary</h4>
+                            <p class="itinerary-subtitle">Click any day to expand or collapse morning, afternoon, and evening activities.</p>
+                            
+                            <div class="accordion-container" id="itineraryAccordion">
+                                <!-- Day items dynamically generated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Academic Capstone</span>
+                <h2 class="section-title">About TripCraft</h2>
+                <p class="section-subtitle">
+                    An individual BCA 5th Semester Web Application Development Project designed to make sustainable, offbeat exploration accessible and budget-conscious.
+                </p>
+            </div>
+
+            <div class="about-content-grid">
+                <div class="about-text-card">
+                    <h3><i class="fa-solid fa-lightbulb"></i> Project Purpose & Motivation</h3>
+                    <p>
+                        Mainstream Indian tourism is heavily concentrated in crowded commercial hubs, often straining local ecosystems while leaving travelers with generic experiences. <strong>TripCraft</strong> was conceived to champion 9 hidden gems across India—from the secluded beaches of Gokarna to the high-altitude serenity of Chopta and the Apatani heritage of Ziro Valley.
+                    </p>
+                    <p>
+                        The goal of this project is to blend travel storytelling with practical engineering: offering transparent destination-specific cost algorithms, authentic regional transit data, and day-by-day itineraries tailored to different traveler preferences.
+                    </p>
+                    <div class="about-key-points">
+                        <div class="key-point">
+                            <i class="fa-solid fa-leaf"></i>
+                            <div>
+                                <strong>Promotes Sustainable Tourism</strong>
+                                <span>Encourages travel to local homestays and indigenous cultural centers.</span>
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <div>
+                                <strong>Transparent & Realistic Costing</strong>
+                                <span>No fabricated numbers; realistic regional lodging, food, and transit estimates.</span>
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <i class="fa-solid fa-code"></i>
+                            <div>
+                                <strong>Clean & Viva-Ready Architecture</strong>
+                                <span>Pure HTML5, CSS3, Vanilla JS, and lightweight Python Flask backend.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-tech-card">
+                    <h3><i class="fa-solid fa-laptop-code"></i> Technical Stack & Architecture</h3>
+                    <ul class="tech-stack-list">
+                        <li>
+                            <span class="tech-badge frontend-badge">Frontend</span>
+                            <div>
+                                <strong>HTML5 & Semantic Structure</strong>
+                                <span>Accessible forms, modular sections, and semantic markup.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="tech-badge css-badge">Styling</span>
+                            <div>
+                                <strong>CSS3 & Responsive Design</strong>
+                                <span>Flexbox, CSS Grid, custom properties, and smooth animations.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="tech-badge js-badge">Interaction</span>
+                            <div>
+                                <strong>Vanilla JavaScript (ES6+)</strong>
+                                <span>DOM manipulation, client validation, asynchronous fetch API, and accordion UI.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="tech-badge backend-badge">Backend</span>
+                            <div>
+                                <strong>Python Flask REST API</strong>
+                                <span>Lightweight routing, request validation, and destination cost computation.</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="project-credentials">
+                        <div class="cred-item">
+                            <span>Degree Course</span>
+                            <strong>BCA (Bachelor of Computer Applications)</strong>
+                        </div>
+                        <div class="cred-item">
+                            <span>Semester</span>
+                            <strong>5th Semester</strong>
+                        </div>
+                        <div class="cred-item">
+                            <span>Subject</span>
+                            <strong>Web Application Development</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col brand-col">
+                <a href="#home" class="logo footer-logo">
+                    <span class="logo-icon"><i class="fa-solid fa-compass"></i></span>
+                    <span class="logo-text">Trip<span>Craft</span></span>
+                </a>
+                <p class="footer-desc">
+                    A responsive travel planning web application dedicated to discovering authentic hidden gems in India with realistic budgeting and smart itinerary generation.
+                </p>
+                <div class="footer-badges">
+                    <span class="footer-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+                    <span class="footer-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                    <span class="footer-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                    <span class="footer-tag"><i class="fa-brands fa-python"></i> Flask</span>
+                </div>
+            </div>
+
+            <div class="footer-col links-col">
+                <h4>Quick Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#destinations"><i class="fa-solid fa-chevron-right"></i> 9 Indian Destinations</a></li>
+                    <li><a href="#planner"><i class="fa-solid fa-chevron-right"></i> Interactive Trip Planner</a></li>
+                    <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Project & Architecture</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col dest-col">
+                <h4>Featured Destinations</h4>
+                <ul class="footer-links">
+                    <li><a href="#destinations"><i class="fa-solid fa-location-dot"></i> Ziro Valley, Arunachal Pradesh</a></li>
+                    <li><a href="#destinations"><i class="fa-solid fa-location-dot"></i> Tawang, Arunachal Pradesh</a></li>
+                    <li><a href="#destinations"><i class="fa-solid fa-location-dot"></i> Majuli Island, Assam</a></li>
+                    <li><a href="#destinations"><i class="fa-solid fa-location-dot"></i> Gokarna, Karnataka</a></li>
+                    <li><a href="#destinations"><i class="fa-solid fa-location-dot"></i> Devprayag, Uttarakhand</a></li>
+                    <li><a href="#destinations"><i class="fa-solid fa-location-dot"></i> Mawlynnong, Meghalaya</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>© 2026 TripCraft — BCA 5th Semester Web Application Development Project. Built with clean code for educational viva demonstration.</p>
+                <p class="footer-disclaimer-text">All travel costs and routes are simulated estimates for academic presentation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= DESTINATION DETAILS MODAL ================= -->
+    <div class="modal-backdrop" id="destinationModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close details modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-image-wrapper">
+                <img id="modalImg" src="" alt="Destination photo" class="modal-hero-img">
+                <div class="modal-badge-group">
+                    <span class="modal-category" id="modalCategory">Category</span>
+                    <span class="modal-state" id="modalState"><i class="fa-solid fa-location-dot"></i> State</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title" id="modalTitle">Destination Title</h3>
+                <p class="modal-description" id="modalDescription">Detailed destination description goes here.</p>
+
+                <div class="modal-info-grid">
+                    <div class="modal-info-item">
+                        <i class="fa-solid fa-calendar-star"></i>
+                        <div>
+                            <strong>Best Time to Visit</strong>
+                            <span id="modalBestTime">October to March</span>
+                        </div>
+                    </div>
+                    <div class="modal-info-item">
+                        <i class="fa-solid fa-wallet"></i>
+                        <div>
+                            <strong>Estimated Daily Rate</strong>
+                            <span id="modalDailyRate">₹1,500 - ₹2,500 / day</span>
+                        </div>
+                    </div>
+                    <div class="modal-info-item">
+                        <i class="fa-solid fa-plane-departure"></i>
+                        <div>
+                            <strong>Nearest Airport</strong>
+                            <span id="modalAirport">Airport info</span>
+                        </div>
+                    </div>
+                    <div class="modal-info-item">
+                        <i class="fa-solid fa-train"></i>
+                        <div>
+                            <strong>Nearest Railway Station</strong>
+                            <span id="modalRailway">Railway info</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-highlights-box">
+                    <h4><i class="fa-solid fa-star"></i> Key Highlights & Experiences</h4>
+                    <ul class="modal-highlights-list" id="modalHighlights">
+                        <!-- Populated by JS -->
+                    </ul>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn btn-primary btn-block btn-lg" id="modalBtnPlanHere">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Plan Trip to This Destination
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
